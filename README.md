@@ -127,9 +127,8 @@ then </br>
 
 ![image](https://github.com/user-attachments/assets/a6443248-7d1a-40e3-87ad-c847457a776e)
 
-## Install and Configure Sysmon
 Before we do anything else, let's check if our Splunk is working. For this, go on the Splunk VM and type the following command: </br>
-<strong>ip addres<strong> </br>
+<ul> <li><strong>ip addres<strong></li></ul></br>
 
 ![image](https://github.com/user-attachments/assets/7a2dd961-03fe-41b5-970f-3cae1dd58bc1)
 
@@ -137,4 +136,68 @@ Copy the IP address, go to your Windows VM, Microsoft Edge, and paste the ip:800
 </br>
 </br>
 ![image](https://github.com/user-attachments/assets/f8c43574-c85a-4bbd-8598-112fc3e7f1a0)
+
+## Now, we will install the Universal Forwarder both in our Windows target VM and Windows Server. But I will only show how to do it on the Windows target VM, the other one you can do it :)
+Just follow the steps
+
+Using the account you created login on <a href="https://www.splunk.com/">Splunk</a>, go to
+products > free trial > universal forwarder > windows 64
+
+![image](https://github.com/user-attachments/assets/707b96fb-4197-4f62-b14d-56f2048c49e1)
+
+After you download it, double-click on it to start the installation. Click next, username can be "admin", click next twice
+
+![image](https://github.com/user-attachments/assets/35cd99d1-48f8-4997-ab3a-9895831774ff)
+
+![image](https://github.com/user-attachments/assets/43d66c88-bc24-4422-8bbd-87ee92264302)
+
+When you come to this step, you have to type the IP addres of you splunk server VM and the default port, then click next, and install.
+</br>
+
+![image](https://github.com/user-attachments/assets/29cf1b1f-cd3d-44a7-8199-d12d180df1fb)
+
+## Install and Configure Sysmon
+Go to website <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Sysmon</a> and download it.
+</br>
+</br>
+For this project, we will be using the Sysmon olaf config, so click the <a href="https://github.com/olafhartong/sysmon-modular">link</a>, and select sysmonconfig.xml.
+Click Raw, then right click save as to Download folder.
+
+![image](https://github.com/user-attachments/assets/a657f1c4-aeac-4411-9cc2-3c94521194ef)
+![image](https://github.com/user-attachments/assets/e248f07d-7d8b-44fc-bfc0-3ef03f4d347c)
+
+Now go back to the Download folder, extract the Sysmon folder, and copy the path of the location. Open PowerShell as Admin and cd to the folder
+
+![image](https://github.com/user-attachments/assets/be9216f2-53ef-49c9-8e43-79d04ec88d45)
+![image](https://github.com/user-attachments/assets/af2898cc-890d-4502-8c44-9bdc27349da5)
+
+Now use this command to install it</br>
+<strong>.\sysmon64.exe -i ..\symonconfig.xml </strong>
+</br>
+and press enter ( then -i is to specify the configuration we want to use)
+
+![image](https://github.com/user-attachments/assets/661713de-3513-4240-b2df-59ea5f22af94)
+
+## THIS IS THE MOST IMPORTANT PART!!!
+We have to instruct our Splunk forwarder on what we want to send over to our Splunk server. For this, we must configure a filled called inputs.conf
+<ul>
+  <li>Open Notepad as admin, type the following:</li>
+</ul>
+
+![image](https://github.com/user-attachments/assets/b9c46852-fd0e-40e4-b06e-1419036ac253)
+
+<ul>
+  <li>Save the file to:
+    <li>c:\Program Files\SplunkUniversalForwarder\etc\system\local with name inputs.conf</li>
+  </li>
+</ul>
+
+![image](https://github.com/user-attachments/assets/1108701b-2e69-45c6-bbc8-89a7ca66d6ce)
+
+After doing this, we must restart the Splunk universal forwards. Search for services, look for Splunk forwarder, on the column, log on As, change it to the local system, and click apply. Then click restart
+
+![image](https://github.com/user-attachments/assets/84c1c14a-3ff7-4a1d-b0f6-45ce9a0cca96)
+![image](https://github.com/user-attachments/assets/7ea8a031-ba02-4f10-81bb-9a0abc1f9376)
+![image](https://github.com/user-attachments/assets/5f0d68b6-1b21-475d-89f4-2d3fbf0eb9d1)
+
 
