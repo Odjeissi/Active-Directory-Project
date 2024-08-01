@@ -80,3 +80,43 @@ Now we want to add our user to the vboxsf group. To do that type the command: <s
 </br>
 ![image](https://github.com/user-attachments/assets/2d3bcc12-0fd9-48c7-b518-47683905978d)
 
+Once the user is added to the group, the next step is to create a folder on the VM named "share." To do this, use the command <strong>mkdir share</strong>, and then use the command <strong>ls</strong> to confirm that the directory was created.
+</br>
+</br>
+![image](https://github.com/user-attachments/assets/672366b3-f8a1-4cc8-be5f-44b92e6c6eb0)
+
+Now that we have our directory created, we have to run the following command to mount our share folder into the directory called share. 
+</br>
+<ul>
+  <li><strong> sudo mount -t vboxsf -o uid=1000,gid=1000 "the name of the folder" share/ </strong></li>
+</ul>
+</br>
+
+![image](https://github.com/user-attachments/assets/05529ee9-378f-46e9-879d-936e7d57c795)
+
+To install Splunk, use the command </br><strong>sudo dpkg -i splunk-9.2.0...</strong> You can use the Tab keyboard to complete the name. Press Enter, and wait for it to install.
+</br>
+</br>
+![image](https://github.com/user-attachments/assets/ee19bcbd-9468-42e8-b92c-d6e15fd19ddd)
+
+In order to start Splunk, we have to change the directory to where it is located. For this, run the command: </br>
+<strong>cd /opt/splunk</strong>
+</br>
+Then
+</br>
+<strong>sudo -u splunk bash</strong>
+</br>
+To change to the user called splunk
+</br>
+</br>
+![image](https://github.com/user-attachments/assets/8b696afe-d74c-4b6e-a79f-51e47383c047)
+
+After, use the command: </br>
+<strong>cd bin</strong>
+</br>
+Then </br>
+<strong>./splunk start</strong> </br>
+To start splunk
+</br>
+</br>
+Afterward, press the space keyboard until the step asks if you agree with the license. Type "y", then create a username and password.
