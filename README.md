@@ -53,7 +53,7 @@ Also before we go on the next step, make sure to change all your VMs network to 
 
 ![image](https://github.com/user-attachments/assets/fad936c6-56e6-48c7-9098-d3cb0573e93f)
 
-## Install and Configure Splunk and Sysmon
+## Install and Configure Splunk
 First, go on <a href="https://www.splunk.com/">Splunk</a> website and create a free account. After you login, go to Free Trials and download the Splunk Enterprise. Save it to a folder.
 
 ![image](https://github.com/user-attachments/assets/28f27467-69e1-4839-99c1-e82f0b669761)
@@ -127,4 +127,14 @@ then </br>
 
 ![image](https://github.com/user-attachments/assets/a6443248-7d1a-40e3-87ad-c847457a776e)
 
+## Install and Configure Sysmon
+Before we do anything else, let's check if our Splunk is working. For this, go on the Splunk VM and type the following command: </br>
+<strong>ip addres<strong> </br>
+
+![image](https://github.com/user-attachments/assets/7a2dd961-03fe-41b5-970f-3cae1dd58bc1)
+
+Copy the IP address, go to your Windows VM, Microsoft Edge, and paste the ip:8000. Example 192.168.10.10:8000
+</br>
+</br>
+![image](https://github.com/user-attachments/assets/f8c43574-c85a-4bbd-8598-112fc3e7f1a0)
 
