@@ -67,10 +67,16 @@ Second, go to your Server VM and run these two commands:
 
 ![image](https://github.com/user-attachments/assets/f8a0cd96-66df-4d14-b2ef-0584b8f10f00)
 
-Third, Go on devices shared folders, settings, add a folder, and pick the folder path where you save the Splunk iso ( read, auto, make)
+Third, Go to devices shared folders, and settings, add a folder, and pick the folder path where you save the Splunk iso ( read, auto, make)
 
 ![image](https://github.com/user-attachments/assets/7a3109ae-fa35-4b19-b3b0-2644ca24e2a0)
 ![image](https://github.com/user-attachments/assets/8e952341-6a42-42fc-8b5c-3949e673b3b1)
 </br>
 Then use the command: <strong>sudo reboot</strong> 
 </br>to reboot the machine
+
+Now we want to add our user to the vboxsf group. To do that type the command: <strong>sudo adduser "Your user Name" vboxsf</strong>
+</br>
+</br>
+![image](https://github.com/user-attachments/assets/2d3bcc12-0fd9-48c7-b518-47683905978d)
+
