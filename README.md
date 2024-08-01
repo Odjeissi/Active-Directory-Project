@@ -1,6 +1,7 @@
 # Active-Directory-Project-Home-Lab
 ## Diagram
-![image](https://github.com/user-attachments/assets/bdbde590-e36b-46c9-85c8-aed76cc29512)
+![image](https://github.com/user-attachments/assets/9988a750-10fe-461a-ab14-3efd4d7e90aa)
+
 
 
 ## Download and install Oracle VirtualBox from the official website.
@@ -9,15 +10,12 @@
 ## Download the ISO files
 <a href="https://www.microsoft.com/en-us/software-download/windows10">Windows 10</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022">Windows Server 2022</a> &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://www.kali.org/get-kali/#kali-virtual-machines">Kali Linux</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://ubuntu.com/download/server">Ubuntu Server</a> &nbsp;&nbsp;&nbsp;&nbsp;
 
 ## Installation (Windows, Kali, and Windows Server VM)
 Below there are videos on how to install
 </br>
 <a href="https://www.youtube.com/watch?v=dGr0cyswGq0">Windows 10</a> 
-</br>
-<a href="https://www.youtube.com/watch?v=iqTm5TgO-Nw">Kali Linux</a> 
 </br>
 <a href="https://www.youtube.com/watch?v=pcFrrt6o_cU">Windows Server 2022</a>
 
@@ -261,4 +259,17 @@ Now, we will add it to the domain. For this, search for about, then click advanc
 After the computer reboots, we will use one of the users to log in. In my case, I will use user Bob as an example.
 
 ![image](https://github.com/user-attachments/assets/bf33eed5-e5f8-4295-ba73-4322aeb60079)
+
+## Perform Brute Force Alerts on Splunk
+
+For this final part of the project, you can use Kali Linux tools to perform brute force. But since the project is getting too long, I will log out of my Active Directory VM and log in again, typing in the wrong password to generate an alert on Splunk.
+
+![image](https://github.com/user-attachments/assets/a260e71d-8397-4808-8b3b-7d41bca24a54)
+
+As we can in the image provided below, there are six consecutive occurrences of events with the event code 4625.
+4625 is a failed logon event that can indicate a brute force attack, dictionary attack, or other password guess attack. A sudden increase in failed logins can be a sign of a brute-force attack.
+
+![image](https://github.com/user-attachments/assets/81dbee5c-3093-4271-91ac-66a5998c6109)
+
+
 
