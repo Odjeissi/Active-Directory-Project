@@ -200,4 +200,65 @@ After doing this, we must restart the Splunk universal forwards. Search for serv
 ![image](https://github.com/user-attachments/assets/7ea8a031-ba02-4f10-81bb-9a0abc1f9376)
 ![image](https://github.com/user-attachments/assets/5f0d68b6-1b21-475d-89f4-2d3fbf0eb9d1)
 
+Now. we can finalize our Splunk server configuration. Go to the Splunk web portal and log in using your credentials. Click settings, index, create New index > type endpoint, and save it.
+
+![image](https://github.com/user-attachments/assets/b6716412-478a-4db6-bee5-ee6302896a2a)
+![image](https://github.com/user-attachments/assets/2f4dfe76-46f9-4b4d-83e7-39d6f7581b1c)
+
+Click settings again, go to Forwarding and receiving, configure receiving > add new, port 9997, and save it.
+
+![image](https://github.com/user-attachments/assets/3a7cc75a-2c01-43ff-9621-5c7483de688e)
+![image](https://github.com/user-attachments/assets/9a35c15f-04be-4d92-9987-3961581ca1d5)
+
+To check if everything is good, click apps, search, and reporting, and search for index="endpoint". After doing the same steps on the Windows server machine, you should have 2 hosts.
+
+![image](https://github.com/user-attachments/assets/c040e944-27d1-4760-ab96-1bbe0b710adf)
+![image](https://github.com/user-attachments/assets/213b7ec0-d670-4593-9b37-86d296f77851)
+
+## Install and configure Active Directory
+To Install and configure Active Directory, head over to the server manager, click manage, and add roles and features.
+
+![image](https://github.com/user-attachments/assets/5bd5bfff-9a99-4522-a2a4-601564f5bcc3)
+
+Click next, next, until this step where you select Active Directory Domain Services. Then Keep clicking next until finishing installing it.
+
+![image](https://github.com/user-attachments/assets/c506b528-524b-4edb-8d4f-2e65460449e6)
+![image](https://github.com/user-attachments/assets/26e64171-f50a-45a4-9616-1559423c33f9)
+
+After installation, we need to promote the server to a domain controller. To do this, click the flag in the top right corner. Add a new forest, and pick a name for the domain. The domain must have a top-level domain, it can be whatever name you picked "dot" something. For example work<strong>.local</strong>
+
+![image](https://github.com/user-attachments/assets/36b6d1b5-229d-4f53-bdef-23b856fe26ff)
+![image](https://github.com/user-attachments/assets/f35518d6-dafb-4362-9c1a-3e5aec437fce)
+
+Then click next and choose a password. Keep clicking next until installation is done, and wait for the server to reboot.
+
+![image](https://github.com/user-attachments/assets/aad5ab23-c496-47e6-ade1-036063a7d246)
+
+## How to create users
+
+After successfully promoting the server to a domain, login, go to tools, and click on Active Directory users and computers.
+
+![image](https://github.com/user-attachments/assets/3287e159-3297-4637-bd2a-92e17c9f0cf7)
+
+For this project, we will only create two users, but you can create more if you want. Right-click on the domain, select "new," then "organizational unit," and name it "IT." Next, right-click on "IT," choose "new," then "user." Then follow the steps to choose the username and password. Repeat the same process for the other department. In my case, I created one called HR, and a user.
+
+![image](https://github.com/user-attachments/assets/22c06d2e-15ed-456a-a0f0-7635c4027dc8)
+![image](https://github.com/user-attachments/assets/03941859-8c35-4755-a964-9cbee40cfac2)
+
+Now that we have our active directory set up and our server. We will go to our Windows target machine, add it to the domain, and log in as one of the users that we created.
+But before we go to the Windows target machine, go to PowerShell on the Active Directory VM, and type <strong>ipconfig.<strong> We will need our IP address for the following steps. After copying the IP or memorizing it, go to the Windows target machine.
+
+![image](https://github.com/user-attachments/assets/f2cf8e04-d575-44da-b9ef-5b3e61cc2c7a)
+
+On the Windows target machine, click on the Network & Internet settings, Change adapter options, double click on the Ethernet, Properties, double click on the IPV 4, and select "use the following DNS serve address." Type the IP address of your active directory here, and click Ok.
+
+![image](https://github.com/user-attachments/assets/867e4ba5-6800-4cd2-aa52-9f3744f80f20)
+
+Now, we will add it to the domain. For this, search for about, then click advanced system settings, computer name, change, and type your domain name. Then click okay, and use the administrator credentials.
+
+![image](https://github.com/user-attachments/assets/707e74b5-0b8d-4990-9bbd-8b566ad6974e)
+
+After the computer reboots, we will use one of the users to log in. In my case, I will use user Bob as an example.
+
+![image](https://github.com/user-attachments/assets/bf33eed5-e5f8-4295-ba73-4322aeb60079)
 
