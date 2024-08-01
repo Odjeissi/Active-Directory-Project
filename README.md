@@ -119,4 +119,12 @@ Then </br>
 To start splunk
 </br>
 </br>
-Afterward, press the space keyboard until the step asks if you agree with the license. Type "y", then create a username and password.
+Afterward, press the space keyboard until the step where it asks if you agree with the license. Type "y", then create a username and password.
+To facilitate our job, we will run a command to start Splunk every time our VM reboots. So that way, we do not have to do all those steps to start Splunk again. First type <strong>exit</strong> to close Splunk, then run the command: </br>
+<strong>cd bin</strong></br>
+then </br>
+<strong>./splunk enable boot-start -user splunk</strong>
+
+![image](https://github.com/user-attachments/assets/a6443248-7d1a-40e3-87ad-c847457a776e)
+
+
