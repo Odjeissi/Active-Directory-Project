@@ -266,7 +266,7 @@ For this final part of the project, you can use Kali Linux tools to perform brut
 
 ![image](https://github.com/user-attachments/assets/a260e71d-8397-4808-8b3b-7d41bca24a54)
 
-As we can in the image provided below, there are six consecutive occurrences of events with the event code 4625.
+As we can see in the image provided below, there are six consecutive occurrences of events with the event code 4625.
 4625 is a failed logon event that can indicate a brute force attack, dictionary attack, or other password guess attack. A sudden increase in failed logins can be a sign of a brute-force attack.
 
 ![image](https://github.com/user-attachments/assets/81dbee5c-3093-4271-91ac-66a5998c6109)
