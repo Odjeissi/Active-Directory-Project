@@ -2,7 +2,9 @@
 ## Diagram
 ![image](https://github.com/user-attachments/assets/9988a750-10fe-461a-ab14-3efd4d7e90aa)
 
+## Introduction
 
+In this project, I will set up an environment with Active Directory, Splunk, and Windows machines to simulate and analyze cybersecurity events. The goal is to create a setup where Active Directory manages user logins, Splunk handles logging and monitoring, and Windows machines act as clients in the network. I will create users and perform a brute force attack to trigger security alerts on Splunk, showing how security systems can identify and respond to threats. This project demonstrates the technical setup of important IT infrastructure and highlights the importance of active security monitoring and response.
 
 ## Download and install Oracle VirtualBox from the official website.
 <a href="https://www.virtualbox.org/">Oracle Virtual Box</a>
